@@ -1,0 +1,35 @@
+#include<iostream>
+#include<string>
+using namespace std;
+struct employee{
+    int empno;
+    char ename[20];
+    float basic,hra,da;
+    
+    float calculate(){
+        return basic+hra+da;
+    }
+    void getdata(){
+        cout<<"Enter Employee Id:";
+        cin>>empno;
+        cout<<"Enter Employee Name:";
+        cin>>ename;
+        cout<<"Enter Employee Basic Salary:";
+        cin>>basic;
+        cout<<"Enter Employee HRA:";
+        cin>>hra;
+        cout<<"Enter Employee DA:";
+        cin>>da;
+    }
+    int dispdata(){
+        cout<<"Employee ID Is:"<<empno<<"\n";
+        cout<<"Employee Name Is:"<<ename<<"\n";
+        cout<<"Employee Salary Is:"<<calculate()<<"\n";
+        return 0;
+    }
+};
+int main(){
+    employee emp1;
+    emp1.getdata();
+    emp1.dispdata();
+}
