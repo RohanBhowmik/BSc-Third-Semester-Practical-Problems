@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+class triangle{
+    int s1,s2,s3;
+    public:
+    triangle(int a, int b, int c){
+        s1=a,s2=b,s3=c;
+        if(s1==s2 && s2==s3){
+            cout<<"The Triangle is Equilateral";
+        }
+        else if(s1==s2 || s2==s3){
+            cout<<"The Triangle is Isocelles";
+        }
+        else{
+            cout<<"The Triangle is Scalene";
+        }
+    }
+};
+int main(){
+    int x,y,z;
+    cout<<"Enter First Side of Triangle:";
+    cin>>x;
+    cout<<"Enter Second Side of Triangle:";
+    cin>>y;
+    cout<<"Enter Third Side of Triangle:";
+    cin>>z;
+    triangle(x,y,z);
+    return 0;
+}
