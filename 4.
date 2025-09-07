@@ -1,0 +1,61 @@
+#include <iostream>
+using namespace std;
+class Complex{
+    float real,imag;
+    public:
+    Complex(int r=0.0,int i=0.0){
+        real=r;
+        imag=i;
+    }
+    float rpart(){
+        return real;
+    }
+    float ipart(){
+        return imag;
+    }
+    Complex operator+(Complex &c){
+        Complex add;
+        add.real=this->real+c.real;
+        add.imag=this->imag+c.imag;
+        return add;
+    }
+    Complex operator*(Complex &c){
+        Complex mul;
+        mul.real=this->real*c.real;
+        mul.imag=this->imag*c.imag;
+        return mul;
+    }
+    void display(){
+        cout << real;
+        if (imag >= 0)
+            cout << " + " << imag << "i";
+        else
+            cout << " - " << -imag << "i";
+    }
+};
+int main(){
+    Complex c0,c1(2),c2(3,2),plus,prod;
+    plus=c1+c2;
+    prod=c1*c2;
+    cout<<"First complex no.:"<<"\n";
+    c1.display();
+    cout<<"\n";
+    cout<<"Second complex no.:"<<"\n";
+    c2.display();
+    cout<<"\n";
+    cout<<"Sum of the two complex no. is:"<<"\n";
+    plus.display();
+    cout<<"\n";
+    cout<<"Product of the two complex no. is:"<<"\n";
+    prod.display();
+    cout<<"\n";
+    cout << "Real part of First Complex No.: " << c1.rpart();
+    cout<<"\n";
+    cout << "Imaginary part of First Complex No.: " << c1.ipart();
+    cout<<"\n";
+    cout << "Real part of Second Complex No.: " << c2.rpart();
+    cout<<"\n";
+    cout << "Imaginary part of Second Complex No.: " << c2.ipart();
+    cout<<"\n";
+    return 0;
+}
