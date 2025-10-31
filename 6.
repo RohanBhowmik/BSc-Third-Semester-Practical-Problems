@@ -1,1 +1,60 @@
-m
+#include <iostream>
+using namespace std;
+class Complex{
+    float real,imag;
+    public:
+    Complex(){
+        real=0.0;
+        imag=0.0;
+    }
+    Complex operator+(Complex &c){
+        Complex add;
+        add.real=real+c.real;
+        add.imag=imag+c.imag;
+        return add;
+    }
+    Complex operator-(Complex &c){
+        Complex sub;
+        sub.real=real-c.real;
+        sub.imag=imag-c.imag;
+        return sub;
+    }
+    Complex operator*(Complex &c){
+        Complex mul;
+        mul.real=real*c.real;
+        mul.imag=imag*c.imag;
+        return mul;
+    }
+    friend ostream &operator<<(ostream &o,Complex &c){
+        if(c.imag>=0)
+            o<<"Complex No.:"<<c.real<<"+i"<<c.imag;
+        else
+            o<<"Complex No.:"<<c.real<<"-i"<<-c.imag;
+        return o;
+    }
+    friend istream &operator>>(istream &i, Complex &c){
+        i>>c.real>>c.imag;
+        return i;
+    }
+};
+int main(){
+    Complex c1,c2,plus,prod,mins;
+    cout<<"Enter Real and Imaginary part of First complex no.:"<<"\n";
+    cin>>c1;
+    cout<<"Enter Real and Imaginary part of Second complex no.:"<<"\n";
+    cin>>c2;
+    plus=c1+c2;
+    prod=c1*c2;
+    mins=c1-c2;
+    cout<<"First "<<c1<<"\n";
+    cout<<"\n";
+    cout<<"Second "<<c2<<"\n";
+    cout<<"\n";
+    cout<<"Sum of the two "<<plus<<"\n";
+    cout<<"\n";
+    cout<<"Difference of the two "<<mins<<"\n";
+    cout<<"\n";
+    cout<<"Product of the two "<<prod<<"\n";
+    cout<<"\n";
+    return 0;
+}
