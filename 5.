@@ -1,0 +1,47 @@
+#include<cmath>
+#include <iostream>
+using namespace std;
+class point{
+    public:
+    float xordinate,yordinate;
+    point(float x=0.0, float y=0.0){
+        xordinate=x;
+        yordinate=y;
+    }
+    void display(){
+        cout<<"The X Co-ordinate is:"<<xordinate<<"\n";
+        cout<<"The Y Co-ordinate is:"<<yordinate<<"\n";
+    }
+    friend float distbtw(point& p1,point& p2);
+    float dist(){
+        return sqrt(xordinate * xordinate + yordinate * yordinate);
+    }
+    float slope(){
+        if (xordinate == 0) 
+            cout<<"Error";
+        else
+            return yordinate / xordinate;
+        return 0;
+    }
+};
+float distbtw(point& p1,point& p2) {
+    float dx = p1.xordinate - p2.xordinate;
+    float dy = p1.yordinate - p2.yordinate;
+    return sqrt(dx * dx + dy * dy);
+}
+int main(){
+    point p1,p2(2),p3(2,3);
+    cout<<"For p1:"<<"\n";
+    p1.display();
+    cout<<"\n";
+    cout<<"For p2:"<<"\n";
+    p2.display();
+    cout<<"\n";
+    cout<<"For p3:"<<"\n";
+    p3.display();
+    cout<<"\n";
+    cout << "Distance of p3 from origin: " << p3.dist() << "\n";
+    cout << "Slope of p3 with origin: " << p3.slope() << "\n";
+    cout << "Distance between p2 and p3: " << distbtw(p2, p3) <<"\n";
+}
+    
